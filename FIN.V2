@@ -1,4 +1,4 @@
--- 禁止翻库和倒卖不然4000家
+-- 禁止翻库不然4000家
 
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/main/dist/main.lua"))()
 
@@ -31,7 +31,7 @@ WindUI:Localization({
             ["FEATURES"] = "后面有用",
             ["UTILITIES"] = "FIN主群",
             ["UI_ELEMENTS"] = "后面有用",
-            ["CONFIGURATION"] = "群组",
+            ["CONFIGURATION"] = "服务器选择",
             ["SAVE_CONFIG"] = "Save Configuration",
             ["LOAD_CONFIG"] = "Load Configuration",
             ["THEME_SELECT"] = "Select Theme",
@@ -319,6 +319,30 @@ TabHandles.Appearance:Paragraph({
     Color = "White"
 })
 
+local footerSection = Window:Section({ Title = "WindUI " .. WindUI.Version })
+TabHandles.Config:Paragraph({
+    Title = "FIN脚本主群(可能搜不到)",
+    Desc = "可以让你爽歪歪😎",
+    Image = "github",
+    ImageSize = 20,
+    Color = "Grey",
+    Buttons = {
+        {
+            Title = "复制qq",
+            Icon = "copy",
+            Variant = "Tertiary",
+            Callback = function()
+                setclipboard("155723303")
+                WindUI:Notify({
+                    Title = "复制成功",
+                    Content = "请在粘贴板查看",
+                    Duration = 2
+                })
+            end
+        }
+    }
+})
+
 local themes = {}
 for themeName, _ in pairs(WindUI:GetThemes()) do
     table.insert(themes, themeName)
@@ -398,30 +422,6 @@ TabHandles.Config:Paragraph({
     Image = "save",
     ImageSize = 20,
     Color = "White"
-})
-
-local footerSection = Window:Section({ Title = "WindUI " .. WindUI.Version })
-TabHandles.Config:Paragraph({
-    Title = "FIN脚本主群(可能搜不到)",
-    Desc = "可以让你爽歪歪😎",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey",
-    Buttons = {
-        {
-            Title = "复制qq",
-            Icon = "copy",
-            Variant = "Tertiary",
-            Callback = function()
-                setclipboard("155723303")
-                WindUI:Notify({
-                    Title = "复制成功",
-                    Content = "请在粘贴板查看",
-                    Duration = 2
-                })
-            end
-        }
-    }
 })
 
 Window:OnClose(function()
