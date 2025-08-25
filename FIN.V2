@@ -32,7 +32,7 @@ WindUI:Localization({
             ["UTILITIES"] = "服务器选择",
             ["UI_ELEMENTS"] = "后面有用",
             ["CONFIGURATION"] = "自然灾害",
-            ["TONGYONG"] = "通用",
+            ["FUNCTIONAL"] = "玩家通用",
             ["LOAD_CONFIG"] = "Load Configuration",
             ["THEME_SELECT"] = "Select Theme",
             ["TRANSPARENCY"] = "Window Transparency"
@@ -380,7 +380,7 @@ local transparencySlider = TabHandles.Appearance:Slider({
     },
     Step = 0.1,
     Callback = function(value)
-        Window:ToggleTransparency(tonumber(value) > 0)
+        Window:ToggleTransparency(tonumber(value) > 0.1)
         WindUI.TransparencyValue = tonumber(value)
     end
 })
@@ -423,13 +423,21 @@ TabHandles.Appearance:Button({
     end
 })
 
+TabHandles.Functional:Paragraph({
+    Title = "你的注入器",
+    Desc = "666",
+    Image = "github",
+    ImageSize = 20,
+    Color = "Grey"
+})
+
 local themes = {}
 for themeName, _ in pairs(WindUI:GetThemes()) do
     table.insert(themes, themeName)
 end
 table.sort(themes)
 
-local intensitySlider = TabHandles.TONGYONG:Slider({
+local intensitySlider = TabHandles.Functional:Slider({
     Title = "速度",
     Desc = "玩家速度",
     Value = { Min = 16, Max = 200, Default = 16 },
