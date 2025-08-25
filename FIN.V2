@@ -227,8 +227,8 @@ local TabHandles = {
 }
 
 TabHandles.Elements:Paragraph({
-    Title = "Interactive Components",
-    Desc = "Explore WindUI's powerful elements",
+    Title = "按键",
+    Desc = "哎呦我去",
     Image = "component",
     ImageSize = 20,
     Color = Color3.fromHex("#30ff6a"),
@@ -238,13 +238,13 @@ TabHandles.Elements:Divider()
 
 local toggleState = false
 local featureToggle = TabHandles.Elements:Toggle({
-    Title = "Enable Advanced Features",
-    Desc = "Unlocks additional functionality",
+    Title = "开关",
+    Desc = "按键开关",
     Value = false,
     Callback = function(state) 
         toggleState = state
         WindUI:Notify({
-            Title = "Features",
+            Title = "一个通知",
             Content = state and "Features Enabled" or "Features Disabled",
             Icon = state and "check" or "x",
             Duration = 2
@@ -253,8 +253,8 @@ local featureToggle = TabHandles.Elements:Toggle({
 })
 
 local intensitySlider = TabHandles.Elements:Slider({
-    Title = "Effect Intensity",
-    Desc = "Adjust the effect strength",
+    Title = "调节",
+    Desc = "滑动调节",
     Value = { Min = 0, Max = 100, Default = 50 },
     Callback = function(value)
         print("Intensity set to:", value)
@@ -262,12 +262,12 @@ local intensitySlider = TabHandles.Elements:Slider({
 })
 
 local modeDropdown = TabHandles.Elements:Dropdown({
-    Title = "Select Mode",
-    Values = { "Standard", "Advanced", "Expert" },
-    Value = "Standard",
+    Title = "选择",
+    Values = { "666", "999", "000" },
+    Value = "666",
     Callback = function(option)
         WindUI:Notify({
-            Title = "Mode Changed",
+            Title = "一个通知",
             Content = "Selected: "..option,
             Duration = 2
         })
@@ -277,11 +277,11 @@ local modeDropdown = TabHandles.Elements:Dropdown({
 TabHandles.Elements:Divider()
 
 TabHandles.Elements:Button({
-    Title = "Show Notification",
+    Title = "点击开关",
     Icon = "bell",
     Callback = function()
         WindUI:Notify({
-            Title = "Hello WindUI!",
+            Title = "一个通知",
             Content = "This is a sample notification",
             Icon = "bell",
             Duration = 3
@@ -290,7 +290,7 @@ TabHandles.Elements:Button({
 })
 
 TabHandles.Elements:Colorpicker({
-    Title = "Select Color",
+    Title = "色彩调节",
     --Desc = "Select coloe",
     Default = Color3.fromHex("#30ff6a"),
     Transparency = 0, -- enable transparency
