@@ -69,7 +69,6 @@ local function gradient(text, startColor, endColor)
     return result
 end
 
-
 -- Add your service to get key 
 --[[
 WindUI.Services.mysuperservicetogetkey = {
