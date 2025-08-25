@@ -29,9 +29,9 @@ WindUI:Localization({
             ["SETTINGS"] = "介绍",
             ["APPEARANCE"] = "公告与UI颜色",
             ["FEATURES"] = "后面有用",
-            ["UTILITIES"] = "FIN主群",
+            ["UTILITIES"] = "服务器选择",
             ["UI_ELEMENTS"] = "后面有用",
-            ["CONFIGURATION"] = "服务器选择",
+            ["CONFIGURATION"] = "自然灾害",
             ["SAVE_CONFIG"] = "Save Configuration",
             ["LOAD_CONFIG"] = "Load Configuration",
             ["THEME_SELECT"] = "Select Theme",
@@ -308,7 +308,7 @@ TabHandles.Appearance:Paragraph({
     Desc = "大佬不要开我源😭",
     Image = "palette",
     ImageSize = 20,
-    Color = "White"
+    Color = "Grey"
 })
 
 TabHandles.Appearance:Paragraph({
@@ -316,7 +316,15 @@ TabHandles.Appearance:Paragraph({
     Desc = "正在努力更新中",
     Image = "palette",
     ImageSize = 20,
-    Color = "White"
+    Color = "Grey"
+})
+
+TabHandles.Appearance:Paragraph({
+    Title = "更新日志",
+    Desc = "更新通用功能",
+    Image = "palette",
+    ImageSize = 20,
+    Color = "Grey"
 })
 
 TabHandles.Appearance:Paragraph({
