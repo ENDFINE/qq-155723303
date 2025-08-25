@@ -2,6 +2,21 @@
 
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/main/dist/main.lua"))()
 
+WindUI:Popup({
+    Title = gradient("FIN | MEG", Color3.fromHex("#6A11CB"), Color3.fromHex("#2575FC")),
+    Icon = "sparkles",
+    Content = "loc:LIB_DESC",
+    Buttons = {
+        {
+            Title = "确定",
+            Icon = "arrow-right",
+            Variant = "Primary",
+            Callback = function() end
+        }
+    }
+})
+
+
 WindUI:Localization({
     Enabled = true,
     Prefix = "loc:",
@@ -54,21 +69,6 @@ local function gradient(text, startColor, endColor)
     end
     return result
 end
-
-WindUI:Popup({
-    Title = gradient("FIN | MEG", Color3.fromHex("#6A11CB"), Color3.fromHex("#2575FC")),
-    Icon = "sparkles",
-    Content = "loc:LIB_DESC",
-    Buttons = {
-        {
-            Title = "确定",
-            Icon = "arrow-right",
-            Variant = "Primary",
-            Callback = function() end
-        }
-    }
-})
-
 
 -- Add your service to get key 
 --[[
