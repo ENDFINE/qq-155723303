@@ -306,7 +306,7 @@ TabHandles.Elements:Colorpicker({
 TabHandles.Appearance:Paragraph({
     Title = "作者 FIN",
     Desc = "大佬不要开我源😭",
-    Image = "palette",
+    Image = "github",
     ImageSize = 20,
     Color = "Grey"
 })
@@ -314,7 +314,7 @@ TabHandles.Appearance:Paragraph({
 TabHandles.Appearance:Paragraph({
     Title = "此脚本为小付费脚本(目前只要1块)",
     Desc = "正在努力更新中",
-    Image = "palette",
+    Image = "github",
     ImageSize = 20,
     Color = "Grey"
 })
@@ -322,7 +322,7 @@ TabHandles.Appearance:Paragraph({
 TabHandles.Appearance:Paragraph({
     Title = "更新日志",
     Desc = "更新通用功能",
-    Image = "palette",
+    Image = "github",
     ImageSize = 20,
     Color = "Grey"
 })
