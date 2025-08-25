@@ -32,7 +32,7 @@ WindUI:Localization({
             ["UTILITIES"] = "服务器选择",
             ["UI_ELEMENTS"] = "后面有用",
             ["CONFIGURATION"] = "自然灾害",
-            ["TONG_YONG"] = "通用",
+            ["TONGYONG"] = "通用",
             ["LOAD_CONFIG"] = "Load Configuration",
             ["THEME_SELECT"] = "Select Theme",
             ["TRANSPARENCY"] = "Window Transparency"
@@ -420,6 +420,21 @@ TabHandles.Appearance:Button({
                 }
             }
         })
+    end
+})
+
+local themes = {}
+for themeName, _ in pairs(WindUI:GetThemes()) do
+    table.insert(themes, themeName)
+end
+table.sort(themes)
+
+local intensitySlider = TabHandles.TONGYONG:Slider({
+    Title = "速度",
+    Desc = "玩家速度",
+    Value = { Min = 16, Max = 200, Default = 16 },
+    Callback = function(value)
+        print("Intensity set to:", value)
     end
 })
 
