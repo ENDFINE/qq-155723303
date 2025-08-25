@@ -305,7 +305,7 @@ TabHandles.Elements:Colorpicker({
 
 TabHandles.Appearance:Paragraph({
     Title = "作者 FIN",
-    Desc = "FIN主群 155723303",
+    Desc = "大佬不要开我源😭",
     Image = "palette",
     ImageSize = 20,
     Color = "White"
@@ -504,18 +504,18 @@ end
 
 local footerSection = Window:Section({ Title = "WindUI " .. WindUI.Version })
 TabHandles.Config:Paragraph({
-    Title = "Created with ❤️",
-    Desc = "github.com/Footagesus/WindUI",
+    Title = "FIN脚本主群(可能搜不到)",
+    Desc = "可以让你爽歪歪😎",
     Image = "github",
     ImageSize = 20,
     Color = "Grey",
     Buttons = {
         {
-            Title = "Copy Link",
+            Title = "复制qq",
             Icon = "copy",
             Variant = "Tertiary",
             Callback = function()
-                setclipboard("https://github.com/Footagesus/WindUI")
+                setclipboard("155723303")
                 WindUI:Notify({
                     Title = "Copied!",
                     Content = "GitHub link copied to clipboard",
