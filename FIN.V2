@@ -319,7 +319,6 @@ TabHandles.Appearance:Paragraph({
     Color = "White"
 })
 
-local footerSection = Window:Section({ Title = "WindUI " .. WindUI.Version })
 TabHandles.Config:Paragraph({
     Title = "FIN脚本主群(可能搜不到)",
     Desc = "可以让你爽歪歪😎",
