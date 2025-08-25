@@ -1,8 +1,8 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 WindUI:Notify({
-    Title = "在森林中的99夜",
-    Content = "已开启",
+    Title = "FIN V2 Hub启动中",
+    Content = "尊贵的FIN用户 欢迎使用FIN脚本",
     Duration = 5,
 })
 
@@ -13,10 +13,10 @@ local hum = Character.HumanoidRootPart
 local PlayerGui = LocalPlayer.PlayerGui
 
 local Window = WindUI:CreateWindow({
-    Title = "KS脚本",
+    Title = "FIN V2",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Author = "森林中的99夜",
+    Author = "付费脚本",
     Folder = "CloudHub",
     Size = UDim2.fromOffset(300, 270),
     Transparent = true,
@@ -33,7 +33,19 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "打开脚本",
+    Title = "FIN V2 Hub",
+    Icon = "star",
+    CornerRadius = UDim.new(0,16),
+    StrokeThickness = 2,
+    Color = ColorSequence.new(
+        Color3.fromHex("FF0F7B"), 
+        Color3.fromHex("F89B29")
+    ),
+    Draggable = true,
+})
+
+local Window = WindUI:CreateWindow({
+	Title = "介绍",
     Icon = "star",
     CornerRadius = UDim.new(0,16),
     StrokeThickness = 2,
