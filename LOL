@@ -44,11 +44,6 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local MainTab = Window:Section({
-    Title = "主功能",
-    Icom = "star",
-})
-
 Main:Button({
     Title = "防甩飞",
     Callback = function()
