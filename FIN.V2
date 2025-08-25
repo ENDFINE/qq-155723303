@@ -319,7 +319,7 @@ TabHandles.Appearance:Paragraph({
     Color = "White"
 })
 
-TabHandles.Config:Paragraph({
+TabHandles.Appearance:Paragraph({
     Title = "FIN脚本主群(可能搜不到)",
     Desc = "可以让你爽歪歪😎",
     Image = "github",
