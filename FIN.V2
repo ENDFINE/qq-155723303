@@ -109,7 +109,7 @@ WindUI.Services.mysuperservicetogetkey = {
 
 local Window = WindUI:CreateWindow({
     Title = "loc:WINDUI_EXAMPLE",
-    Icon = "palette",
+    Icon = "rbxassetid://108646851620147",
     Author = "loc:WELCOME",
     Folder = "WindUI_Example",
     Size = UDim2.fromOffset(580, 490),
