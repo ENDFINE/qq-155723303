@@ -44,16 +44,9 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Window = WindUI:CreateWindow({
-	Title = "介绍",
-    Icon = "star",
-    CornerRadius = UDim.new(0,16),
-    StrokeThickness = 2,
-    Color = ColorSequence.new(
-        Color3.fromHex("FF0F7B"), 
-        Color3.fromHex("F89B29")
-    ),
-    Draggable = true,
+local MainTab = Window:Section({
+    Title = "主功能",
+    Icom = "star",
 })
 
 Main:Button({
