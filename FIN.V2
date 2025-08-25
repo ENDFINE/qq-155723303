@@ -16,7 +16,6 @@ WindUI:Popup({
     }
 })
 
-
 WindUI:Localization({
     Enabled = true,
     Prefix = "loc:",
