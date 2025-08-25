@@ -32,7 +32,7 @@ WindUI:Localization({
             ["UTILITIES"] = "服务器选择",
             ["UI_ELEMENTS"] = "后面有用",
             ["CONFIGURATION"] = "自然灾害",
-            ["APPEARANCE"] = "通用",
+            ["TONG_YONG"] = "通用",
             ["LOAD_CONFIG"] = "Load Configuration",
             ["THEME_SELECT"] = "Select Theme",
             ["TRANSPARENCY"] = "Window Transparency"
