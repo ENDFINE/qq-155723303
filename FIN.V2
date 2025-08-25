@@ -345,7 +345,7 @@ local transparencySlider = TabHandles.Appearance:Slider({
     Value = { 
         Min = 0,
         Max = 1,
-        Default = 0.2,
+        Default = 0.4,
     },
     Step = 0.1,
     Callback = function(value)
@@ -381,10 +381,10 @@ TabHandles.Appearance:Button({
     Callback = function()
         Window:Dialog({
             Title = "你点你妈呢😡",
-            Content = "我就拿筷子",
+            Content = "叫爸爸",
             Buttons = {
                 {
-                    Title = "谢谢",
+                    Title = "爸爸",
                     Variant = "Primary"
                 }
             }
