@@ -1,5 +1,20 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
+WindUI:Popup({
+    Title = gradient("FIN Hub", Color3.fromHex("#6A11CB"), Color3.fromHex("#2575FC")),
+    Icon = "sparkles",
+    Content = "loc:LIB_DESC",
+    Buttons = {
+        {
+            Title = "确定",
+            Icon = "arrow-right",
+            Variant = "Primary",
+            Callback = function() end
+        }
+    }
+})
+
+
 WindUI:Notify({
     Title = "FIN V2 Hub启动中",
     Content = "尊贵的FIN用户 欢迎使用FIN脚本",
