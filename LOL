@@ -46,9 +46,11 @@ Window:EditOpenButton({
 
     local MainTab = Window:Tab({Title = "介绍", Icon = "zap"})
 
-Main:Button({
-    Title = "功能",
-    Callback = function()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/Ninja10908/S4/refs/heads/main/Kurdhub"))()
-    end
+Tab:Button ({
+	Title = "复制FIN主群",
+	Callback = function ()
+WindUI:Notify({
+    Title = "已复制",
+    Content = "请在粘贴板查看",
+    Duration = 5,
 })
