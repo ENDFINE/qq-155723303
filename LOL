@@ -46,7 +46,7 @@ Window:EditOpenButton({
 
 local Tab = Window:Tab({
     Title = "介绍",
-    Icon = "drama",
+    Icon = "zap",
     Locked = false,
 })
 
