@@ -44,10 +44,7 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Main = Window:CreatePage({
-    Name = "Main",
-    Title = "主页"
-})
+    local MainTab = Window:Tab({Title = "主要功能", Icon = "zap"})
 
 Main:Button({
     Title = "防甩飞",
