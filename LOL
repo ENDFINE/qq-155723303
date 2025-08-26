@@ -50,6 +50,29 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
+TabHandles.Appearance:Paragraph({
+    Title = "FIN脚本主群(可能搜不到)",
+    Desc = "可以让你爽歪歪😎",
+    Image = "github",
+    ImageSize = 20,
+    Color = "Grey",
+    Buttons = {
+        {
+            Title = "复制qq",
+            Icon = "copy",
+            Variant = "Tertiary",
+            Callback = function()
+                setclipboard("155723303")
+                WindUI:Notify({
+                    Title = "复制成功",
+                    Content = "请在粘贴板查看",
+                    Duration = 2
+                })
+            end
+        }
+    }
+})
+
 local Button = Tab:Button({
     Title = "功能名字",
     Desc = "简介",
