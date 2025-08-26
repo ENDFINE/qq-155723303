@@ -44,6 +44,11 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
+local Main = Window:CreatePage({
+    Name = "Main",
+    Title = "主页"
+})
+
 Main:Button({
     Title = "防甩飞",
     Callback = function()
