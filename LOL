@@ -44,7 +44,11 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-    local MainTab = Window:Tab({Title = "介绍", Icon = "zap"})
+local Tab = Window:Tab({
+    Title = "介绍",
+    Icon = "drama",
+    Locked = false,
+})
 
 local Button = Tab:Button({
     Title = "功能名字",
