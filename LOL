@@ -46,17 +46,16 @@ Window:EditOpenButton({
 
     local MainTab = Window:Tab({Title = "主要功能", Icon = "zap"})
 
-Main:Button({
+Window:Button({
     Title = "防甩飞",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/Scripts/Main/AntiFling.lua"))()
     end
 })
 
-Main:Button({
+Window:Button({
     Title = "99夜",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
      end
 })
-  
