@@ -46,10 +46,11 @@ Window:EditOpenButton({
 
     local MainTab = Window:Tab({Title = "介绍", Icon = "zap"})
 
-
-Main:Button({
-    Title = "功能",
+local Button = Tab:Button({
+    Title = "功能名字",
+    Desc = "简介",
+    Locked = false,
     Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/gycgchgyfytdttr/shenqin/refs/heads/main/99day.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LinuxDevBr/99-Nights-In-the-Forest/refs/heads/main/Script.txt"))()
     end
 })
