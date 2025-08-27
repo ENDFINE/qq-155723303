@@ -53,5 +53,5 @@ local Tab = Window:Tab({
 local Section = Tab:Section({ 
     Title = "作者:鑫晴",
     TextXAlignment = "Left",
-    TextSize = 17, -- Default Size
+    TextSize = 10, -- Default Size
 })
