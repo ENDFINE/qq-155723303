@@ -205,3 +205,14 @@ local Button = Tab:Button({
         end)
     end
 })
+
+local Button = Tab:Button({
+    Title = "传送到雪城",
+    Desc = "传送到冰雪区域",
+    Callback = function()
+        pcall(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
+                CFrame.new(-9675.25, 59.63568115234375, 3783.50146484375)
+        end)
+    end
+})
