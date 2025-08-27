@@ -188,8 +188,8 @@ local Toggle4 = Tab:Toggle({
             end)
         else
             if gemOrbConnection then
-                orangeOrbConnection:Disconnect()
-                orangeOrbConnection = nil
+                gemOrbConnection:Disconnect()
+                gemOrbConnection = nil
             end
         end
     end
