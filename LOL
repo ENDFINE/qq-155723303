@@ -51,7 +51,7 @@ local Tab = Window:Tab({
 })
 
 local Toggle = Tab:Toggle({
-    Title = "自动获取红球",
+    Title = "自动搜集红球",
     Desc = "FIN",
     Locked = false,
     Callback = function(state)
