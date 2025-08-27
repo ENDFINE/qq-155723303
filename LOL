@@ -118,11 +118,11 @@ local Toggle3 = Tab:Toggle({
                 hum = Character:WaitForChild("HumanoidRootPart")
             end
 
-            if YellowOrbConnection then
-                YellowOrbConnection:Disconnect()
+            if yellowOrbConnection then
+                yellowOrbConnection:Disconnect()
             end
 
-            YellowOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            yellowOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
                 local args = { "collectOrb", "Yellow Orb", "City"}
                 game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
             end)
