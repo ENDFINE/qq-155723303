@@ -52,9 +52,16 @@ local Tab = Window:Tab({
 
 local Toggle = Tab:Toggle({
     Title = "自动获取获取红球",
-    Desc = "简介",
+    Desc = "FIN",
     Locked = false,
     Callback = function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/hdjsjjdgrhj/script-hub/refs/heads/main/skyhub"))()
+    local code = [[
+            local args = {"collectOrb", "Red Orb", "City"}
+            while true do
+                game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+                task.wait(0.0001)
+            end
+        ]]
+        loadstring(code)()
     end
 })
