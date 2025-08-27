@@ -112,14 +112,9 @@ local Toggle3 = Tab:Toggle({
     Callback = function(state)
         local autoCollectYellowOrb = state
         
-        if autoCollectBlueOrb then
-            if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                Character = waitForCharacter()
-                hum = Character:WaitForChild("HumanoidRootPart")
-            end
-            
-            if YellowOrbConnection then
-               YellowOrbConnection:Disconnect()
+        if autoCollectYellowOrb then
+            if not Character or not hum then
+                waitForCharacter()
             end
             
             YellowOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
