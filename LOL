@@ -194,3 +194,14 @@ local Toggle5 = Tab:Toggle({
         end
     end
 })
+
+local Button = Tab:Button({
+    Title = "传送到城市",
+    Desc = "传送到主城区",
+    Callback = function()
+        pcall(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
+                CFrame.new(2002.0133056640625, 1.2624330520629883, 985.2265625)
+        end)
+    end
+})
