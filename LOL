@@ -209,16 +209,16 @@ local Toggle6 = Tab:Toggle({
     Desc = "FIN",
     Locked = false,
     Callback = function(state)
-        local autoCollectRebirthOrb = state
+        local autoCollectRebirthRequestOrb = state
         
-        if autoCollectRebirthOrb then
+        if autoCollectRebirthRequestOrb then
                  if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Character = waitForCharacter()
                 hum = Character:WaitForChild("HumanoidRootPart")
             end
 
-            if rebirthOrbConnection then
-                rebirthOrbConnection:Disconnect()
+            if rebirthRequestOrbConnection then
+                rebirthRequestOrbConnection:Disconnect()
             end
 
             rebirthOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
@@ -226,9 +226,9 @@ local Toggle6 = Tab:Toggle({
                 game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
             end)
         else
-            if rebirthOrbConnection then
-                rebirthOrbConnection:Disconnect()
-                rebirthOrbConnection = nil
+            if rebirthRequestirthOrbConnection then
+                rebirthRequestirthOrbConnection:Disconnect()
+                rebirthRequestirthOrbConnection = nil
             end
         end
     end
