@@ -1,449 +1,59 @@
--- 禁止翻库不然4000家
+local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/dream77239/china-ui/refs/heads/main/main%20(2).lua"))()
 
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Footagesus/WindUI/main/dist/main.lua"))()
-
-WindUI:Localization({
-    Enabled = true,
-    Prefix = "loc:",
-    DefaultLanguage = "en",
-    Translations = {
-        ["ru"] = {
-            ["WINDUI_EXAMPLE"] = "FIN V2 Hub",
-            ["WELCOME"] = "FIN脚本",
-            ["LIB_DESC"] = "目前正在尽力研发",
-            ["SETTINGS"] = "通用",
-            ["APPEARANCE"] = "公告与UI颜色",
-            ["FEATURES"] = "后面有用",
-            ["UTILITIES"] = "服务器选择",
-            ["UI_ELEMENTS"] = "后面有用",
-            ["CONFIGURATION"] = "自然灾害",
-            ["FUNCTIONAL"] = "玩家通用",
-            ["LOAD_CONFIG"] = "Load Configuration",
-            ["THEME_SELECT"] = "Select Theme",
-            ["TRANSPARENCY"] = "Window Transparency"
-        }
-    }
-})
-
-WindUI.TransparencyValue = 0.2
-WindUI:SetTheme("Sky")
-
-local function gradient(text, startColor, endColor)
-    local result = ""
+-- 渐变文字函数
+local function gradientText(text, colorA, colorB)
+    if type(text) ~= "string" then return text end
+    local result = {}
     for i = 1, #text do
-        local t = (i - 1) / (#text - 1)
-        local r = math.floor((startColor.R + (endColor.R - startColor.R) * t) * 255)
-        local g = math.floor((startColor.G + (endColor.G - startColor.G) * t) * 255)
-        local b = math.floor((startColor.B + (endColor.B - startColor.B) * t) * 255)
-        result = result .. string.format('<font color="rgb(%d,%d,%d)">%s</font>', r, g, b, text:sub(i, i))
+        local ratio = (i-1)/(#text-1)
+        local r = math.floor(colorA.R + (colorB.R-colorA.R)*ratio * 255)
+        local g = math.floor(colorA.G + (colorB.G-colorA.G)*ratio * 255)
+        local b = math.floor(colorA.B + (colorB.B-colorA.B)*ratio * 255)
+        table.insert(result, string.format('<font color="rgb(%d,%d,%d)">%s</font>', r, g, b, text:sub(i,i)))
     end
-    return result
+    return table.concat(result)
 end
 
-WindUI:Popup({
-    Title = gradient("FIN V2", Color3.fromHex("#6A11CB"), Color3.fromHex("#2575FC")),
-    Icon = "rbxassetid://108646851620147",
-    Content = "loc:LIB_DESC",
-    Buttons = {
-        {
-            Title = "确定",
-            Icon = "arrow-right",
-            Variant = "Primary",
-            Callback = function() end
-        }
-    }
-})
+local Window
+local isUIOpen = false
 
+-- 创建主窗口
+local function createWindow()
+    Window = WindUI:CreateWindow({
+        Title = "FIN脚本",
+        Icon = "zap",
+        IconThemed = true,
+        Author = "作者qq:352602248",
+        Folder = "KScript",
+        Size = UDim2.fromOffset(300, 240),
+        Transparent = true,
+        Theme = "Dark",
+        User = {
+            Enabled = true,
+            Callback = function() print("点击用户信息") end,
+            Anonymous = true
+        },
+        SideBarWidth = 200,
+        ScrollBarEnabled = true
+    })
 
--- Add your service to get key 
---[[
-WindUI.Services.mysuperservicetogetkey = {
-    Name = "My Super Service",
-    Icon = "droplet", -- lucide or rbxassetid or raw link to img
+    -- 主功能标签页  
+ local MainTab = Window:Tab({
+        Title = "极速传奇",
+        Icon = "zap",
+        Locked = false,
+    })
     
-    Args = { "ServiceId" }, --       <- \
-    --                                   |
-    -- important!!!!!!!!!!!!!!!          |
-    New = function(ServiceId) -- <------ | Args!!!!!!!!!!!!
-        
-        function validateKey(key) -- <--- this too important!!!
-            -- your function to validate key
-            -- see examples at src/utils/
-            
-            if not key then
-                return false, "Key is invalid!" 
-                
-            end
-            
-            return true, "Key is valid!" 
-        end
-        
-        function copyLink()
-            return setclipboard("link to key system service.")
-        end
-        
-        return {
-            -- ↓ do not change this!!1!1!1!1!1!!1!100
-            Verify = validateKey, -- <-----  THIS TOO IMPORTANT!!!!!
-            Copy = copyLink -- <-------- IMPORTANT!1!1!1!1!1!1!11!
-            -- ↑ do not change this!!1!1!1!1!1!!1!100
-        }
-    end
-}
-]]
-
-local Window = WindUI:CreateWindow({
-    Title = "loc:WINDUI_EXAMPLE",
-    Icon = "rbxassetid://108646851620147",
-    Author = "loc:WELCOME",
-    Folder = "WindUI_Example",
-    Size = UDim2.fromOffset(580, 490),
-    Theme = "Dark",
-    -- Background = WindUI:Gradient({
-    --     ["0"] = { Color = Color3.fromHex("#0f0c29"), Transparency = 1 },
-    --     ["100"] = { Color = Color3.fromHex("#302b63"), Transparency = 0.9 },
-    -- }, {
-    --     Rotation = 45,
-    -- }),
-    --Background = "video:https://cdn.discordapp.com/attachments/1337368451865645096/1402703845657673878/VID_20250616_180732_158.webm?ex=68958a01&is=68943881&hm=164c5b04d1076308b38055075f7eb0653c1d73bec9bcee08e918a31321fe3058&",
-    User = {
-        Enabled = true,
-        Anonymous = true,
+    MainTab:Button({
+        Title = "极速",
+        Desc = "加载极速脚本",
         Callback = function()
+            local success = pcall(function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ENDFINE/qq-155723303/refs/heads/main/LOL"))()
             WindUI:Notify({
-                Title = "User Profile",
-                Content = "User profile clicked!",
+                Title = "FIN极速传奇",
+                Content = success and "加载成功" or "加载失败",
                 Duration = 3
             })
         end
-    },
-    SideBarWidth = 200,
-    -- KeySystem = { -- <- ↓ remove this all, if you dont neet the key system
-    --     -- Key = { "1234", "5678" },  
-    --     Note = "Example Key System. With platoboost, etc.",
-    --     -- URL = "https://github.com/Footagesus/WindUI",
-    --     -- Thumbnail = {
-    --     --     Image = "rbxassetid://",
-    --     --     Title = "Thumbnail",
-    --     -- },
-    --     API = {
-    --         {   
-    --             -- Title = "Platoboost", -- optional 
-    --             -- Desc = "Click to copy.", -- optional
-    --             -- Icon = "rbxassetid://", -- optional
-                
-    --             Type = "platoboost", -- type: platoboost, ...
-    --             ServiceId = 5541, -- service id
-    --             Secret = "1eda3b70-aab4-4394-82e4-4e7f507ae198", -- platoboost secret
-    --         },
-    --         {   
-    --             -- Title = "Other service", -- optional 
-    --             -- Desc = nil, -- optional
-    --             -- Icon = "rbxassetid://", -- optional
-                
-    --             Type = "pandadevelopment", -- type: platoboost, ...
-    --             ServiceId = "windui", -- service id
-    --         },
-    --         {   
-    --             Type = "luarmor",
-    --             ScriptId = "...",
-    --             Discord = "https://discord.com/invite/...",
-    --         },
-    --         { -- Custom service ( ↑↑ look at line 73 ↑↑ )
-    --             Type = "mysuperservicetogetkey",
-    --             ServiceId = 42,
-    --         }
-    --     },
-    --     SaveKey = true,
-    -- },
-})
-
-Window:Tag({
-    Title = "测试中",
-    Color = Color3.fromHex("#30ff6a")
-})
-Window:Tag({
-    Title = "禁泄密",
-    Color = Color3.fromHex("#315dff")
-})
-local TimeTag = Window:Tag({
-    Title = "00:00",
-    Color = Color3.fromHex("#000000")
-})
-
-local hue = 0
-
-task.spawn(function()
-	while true do
-		local now = os.date("*t")
-		local hours = string.format("%02d", now.hour)
-		local minutes = string.format("%02d", now.min)
-		
-		hue = (hue + 0.01) % 1
-		local color = Color3.fromHSV(hue, 1, 1)
-		
-		TimeTag:SetTitle(hours .. ":" .. minutes)
-		TimeTag:SetColor(color)
-
-		task.wait(0.06)
-	end
-end)
-
-
-Window:CreateTopbarButton("theme-switcher", "moon", function()
-    WindUI:SetTheme(WindUI:GetCurrentTheme() == "Dark" and "Light" or "Dark")
-    WindUI:Notify({
-        Title = "Theme Changed",
-        Content = "Current theme: "..WindUI:GetCurrentTheme(),
-        Duration = 2
     })
-end, 990)
-
-local Tabs = {
-    Main = Window:Section({ Title = "loc:FEATURES", Opened = true }),
-    Settings = Window:Section({ Title = "loc:SETTINGS", Opened = true }),
-    Utilities = Window:Section({ Title = "loc:UTILITIES", Opened = true })
-}
-
-local TabHandles = {
-    Elements = Tabs.Main:Tab({ Title = "loc:UI_ELEMENTS", Icon = "layout-grid", Desc = "UI Elements Example" }),
-    Appearance = Tabs.Settings:Tab({ Title = "loc:APPEARANCE", Icon = "brush" }),
-    Config = Tabs.Utilities:Tab({ Title = "loc:CONFIGURATION", Icon = "settings" })
-}
-
-TabHandles.Elements:Paragraph({
-    Title = "按键",
-    Desc = "哎呦我去",
-    Image = "component",
-    ImageSize = 20,
-    Color = Color3.fromHex("#30ff6a"),
-})
-
-TabHandles.Elements:Divider()
-
-local toggleState = false
-local featureToggle = TabHandles.Elements:Toggle({
-    Title = "开关",
-    Desc = "按键开关",
-    Value = false,
-    Callback = function(state) 
-        toggleState = state
-        WindUI:Notify({
-            Title = "一个通知",
-            Content = state and "Features Enabled" or "Features Disabled",
-            Icon = state and "check" or "x",
-            Duration = 2
-        })
-    end
-})
-
-local intensitySlider = TabHandles.Elements:Slider({
-    Title = "调节",
-    Desc = "滑动调节",
-    Value = { Min = 0, Max = 100, Default = 50 },
-    Callback = function(value)
-        print("Intensity set to:", value)
-    end
-})
-
-local modeDropdown = TabHandles.Elements:Dropdown({
-    Title = "选择",
-    Values = { "666", "999", "000" },
-    Value = "666",
-    Callback = function(option)
-        WindUI:Notify({
-            Title = "一个通知",
-            Content = "Selected: "..option,
-            Duration = 2
-        })
-    end
-})
-
-TabHandles.Elements:Divider()
-
-TabHandles.Elements:Button({
-    Title = "点击开关",
-    Icon = "bell",
-    Callback = function()
-        WindUI:Notify({
-            Title = "一个通知",
-            Content = "This is a sample notification",
-            Icon = "bell",
-            Duration = 3
-        })
-    end
-})
-
-TabHandles.Elements:Colorpicker({
-    Title = "色彩调节",
-    --Desc = "Select coloe",
-    Default = Color3.fromHex("#30ff6a"),
-    Transparency = 0, -- enable transparency
-    Callback = function(color, transparency)
-        WindUI:Notify({
-            Title = "Color Changed",
-            Content = "New color: "..color:ToHex().."\nTransparency: "..transparency,
-            Duration = 2
-        })
-    end
-})
-
-TabHandles.Appearance:Paragraph({
-    Title = "作者 FIN",
-    Desc = "大佬不要开我源😭",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey"
-})
-
-TabHandles.Appearance:Paragraph({
-    Title = "此脚本为小付费脚本(目前只要1块)",
-    Desc = "正在努力更新中",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey"
-})
-
-TabHandles.Appearance:Paragraph({
-    Title = "更新日志",
-    Desc = "更新通用功能",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey"
-})
-
-TabHandles.Appearance:Paragraph({
-    Title = "FIN脚本主群(可能搜不到)",
-    Desc = "可以让你爽歪歪😎",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey",
-    Buttons = {
-        {
-            Title = "复制qq",
-            Icon = "copy",
-            Variant = "Tertiary",
-            Callback = function()
-                setclipboard("155723303")
-                WindUI:Notify({
-                    Title = "复制成功",
-                    Content = "请在粘贴板查看",
-                    Duration = 2
-                })
-            end
-        }
-    }
-})
-
-local themes = {}
-for themeName, _ in pairs(WindUI:GetThemes()) do
-    table.insert(themes, themeName)
-end
-table.sort(themes)
-
-local themeDropdown = TabHandles.Appearance:Dropdown({
-    Title = "loc:UI颜色",
-    Values = themes,
-    Value = "Dark",
-    Callback = function(theme)
-        WindUI:SetTheme(theme)
-        WindUI:Notify({
-            Title = "Theme Applied",
-            Content = theme,
-            Icon = "palette",
-            Duration = 2
-        })
-    end
-})
-
-local transparencySlider = TabHandles.Appearance:Slider({
-    Title = "loc:UI透明度",
-    Value = { 
-        Min = 0,
-        Max = 1,
-        Default = 0.4,
-    },
-    Step = 0.1,
-    Callback = function(value)
-        Window:ToggleTransparency(tonumber(value) > 0.1)
-        WindUI.TransparencyValue = tonumber(value)
-    end
-})
-
-local canchangetheme = true
-
-local ThemeToggle = TabHandles.Appearance:Toggle({
-    Title = "黑色UI",
-    Desc = "深色UI",
-    Value = true,
-    Callback = function(state)
-        if canchangetheme then
-            WindUI:SetTheme(state and "Dark" or "Light")
-        end
-        themeDropdown:Select(state and "黑色" or "其他颜色")
-    end
-})
-
-WindUI:OnThemeChange(function(theme)
-    canchangetheme = false
-    ThemeToggle:Set(theme == "Dark")
-    canchangetheme = true
-end)
-
-
-TabHandles.Appearance:Button({
-    Title = "不要点击",
-    Icon = "plus",
-    Callback = function()
-        Window:Dialog({
-            Title = "你点你妈呢😡",
-            Content = "叫爸爸",
-            Buttons = {
-                {
-                    Title = "爸爸",
-                    Variant = "Primary"
-                }
-            }
-        })
-    end
-})
-
-TabHandles.Functional:Paragraph({
-    Title = "你的注入器",
-    Desc = "666",
-    Image = "github",
-    ImageSize = 20,
-    Color = "Grey"
-})
-
-local intensitySlider = TabHandles.Functional:Slider({
-    Title = "速度",
-    Desc = "玩家速度",
-    Value = { Min = 16, Max = 200, Default = 16 },
-    Callback = function(value)
-        print("Intensity set to:", value)
-    end
-})
-
-TabHandles.Config:Paragraph({
-    Title = "为一人做的脚本",
-    Desc = "喵喵喵",
-    Image = "save",
-    ImageSize = 20,
-    Color = "White"
-})
-
-Window:OnClose(function()
-    print("Window closed")
-    
-    if ConfigManager and configFile then
-        configFile:Set("playerData", MyPlayerData)
-        configFile:Set("lastSave", os.date("%Y-%m-%d %H:%M:%S"))
-        configFile:Save()
-        print("Config auto-saved on close")
-    end
-end)
-
-Window:OnDestroy(function()
-    print("Window destroyed")
-end)
