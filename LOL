@@ -16,7 +16,7 @@ local Window = WindUI:CreateWindow({
     Title = "FIN V2",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
-    Author = "脚本",
+    Author = "作者:鑫晴",
     Folder = "CloudHub",
     Size = UDim2.fromOffset(300, 270),
     Transparent = true,
@@ -44,20 +44,14 @@ Window:EditOpenButton({
     Draggable = true,
 })
 
-local Tab = Window:Tab({
-    Title = "介绍",
-    Icon = "zap",
-    Locked = false,
-})
-
-local Section = Tab:Section({ 
-    Title = "作者:鑫晴",
-    TextXAlignment = "Left",
-    TextSize = 10, -- Default Size
-})
-
-local Section = Tab:Section({ 
-    Title = "此脚本在尽力更新",
-    TextXAlignment = "Left",
-    TextSize = 10, -- Default Size
-})
+local CombatSection = MainTab:Section({Title = "人物速度", Opened = true})
+    
+  CharacterSection:Slider({
+        Title = "步行速度",
+        Min = 16,
+        Max = 400,
+        Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+        Callback = function(Speed)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed
+        end
+    })
