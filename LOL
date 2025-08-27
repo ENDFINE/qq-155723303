@@ -113,8 +113,9 @@ local Toggle3 = Tab:Toggle({
         local autoCollectYellowOrb = state
         
         if autoCollectYellowOrb then
-            if not Character or not hum then
-                waitForCharacter()
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
             end
 
             if YellowOrbConnection then
