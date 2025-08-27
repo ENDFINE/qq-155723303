@@ -50,6 +50,15 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
+local Button = Tab:Button({
+    Title = "防挂机",
+    Desc = "一个防挂机",
+    Locked = false,
+    Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/Scripts/Main/AntiFling.lua"))()
+    end
+})
+
 local Toggle = Tab:Toggle({
     Title = "自动搜集红球",
     Desc = "FIN",
