@@ -165,7 +165,7 @@ local Toggle4 = Tab:Toggle({
     end
 })
 
-local Toggle4 = Tab:Toggle({
+local Toggle5 = Tab:Toggle({
     Title = "自动搜集钻石",
     Desc = "FIN",
     Locked = false,
