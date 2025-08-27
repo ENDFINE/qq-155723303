@@ -230,9 +230,9 @@ local Toggle7 = Tab:Toggle({
     Desc = "FIN",
     Locked = false,
     Callback = function(state)
-        local autoCollectLightingOrb = state
+        local autoCollectLightningOrb = state
         
-        if autoCollectLighthingleOrb then
+        if autoCollectLightningleOrb then
                  if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
                 Character = waitForCharacter()
                 hum = Character:WaitForChild("HumanoidRootPart")
