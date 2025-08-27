@@ -45,13 +45,13 @@ Window:EditOpenButton({
 })
 
 local Tab = Window:Tab({
-    Title = "通用",
+    Title = "极速传奇",
     Icon = "zap",
     Locked = false,
 })
 
-local Button = Tab:Button({
-    Title = "功能名字",
+local Toggle = Tab:Toggle({
+    Title = "自动获取获取红球",
     Desc = "简介",
     Locked = false,
     Callback = function()
