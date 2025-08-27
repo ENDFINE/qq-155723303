@@ -195,6 +195,36 @@ local Toggle5 = Tab:Toggle({
     end
 })
 
+local Toggle6 = Tab:Toggle({
+    Title = "自动抽紫水晶",
+    Desc = "FIN",
+    Locked = false,
+    Callback = function(state)
+        local autoCollectPurpleOrb = state
+        
+        if autoCollectPurpleOrb then
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
+            end
+
+            if purpleOrbConnection then
+               purpleOrbConnection:Disconnect()
+            end
+
+            purpleOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+               local args = { "openCrystal", "Purple Crystal"}
+               game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            end)
+        else
+            if purpleOrbConnection then
+                purpleOrbConnection:Disconnect()
+                purpleOrbConnection = nil
+            end
+        end
+    end
+})
+
 local Button = Tab:Button({
     Title = "传送到主城",
     Desc = "传送到冰霜路线",
