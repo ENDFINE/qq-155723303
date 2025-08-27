@@ -153,7 +153,7 @@ local Toggle4 = Tab:Toggle({
             end
 
             orangeOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
-                local args = {"collectOrb", "Orange Orb", "City"}
+                local args = { "collectOrb", "Orange Orb", "City"}
                 game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
             end)
         else
@@ -163,3 +163,4 @@ local Toggle4 = Tab:Toggle({
             end
         end
     end
+})
