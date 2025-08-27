@@ -196,7 +196,7 @@ local Toggle5 = Tab:Toggle({
 })
 
 local Button = Tab:Button({
-    Title = "传送到冰霜",
+    Title = "传送到主城",
     Desc = "传送到冰霜路线",
     Callback = function()
         pcall(function()
@@ -213,6 +213,28 @@ local Button = Tab:Button({
         pcall(function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
                 CFrame.new(-9675.25, 59.63568115234375, 3783.50146484375)
+        end)
+    end
+})
+
+local Button = Tab:Button({
+    Title = "传送到火山",
+    Desc = "传送到火山区域",
+    Callback = function()
+        pcall(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
+                CFrame.new(-11052.4189453125, 217.59571838378906, 4898.76416015625)
+        end)
+    end
+})
+
+local Button = Tab:Button({
+    Title = "传送到公路",
+    Desc = "传送到高速公路",
+    Callback = function()
+        pcall(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
+                CFrame.new(-13095.255859375, 217.59567260742188, 5905.240234375)
         end)
     end
 })
