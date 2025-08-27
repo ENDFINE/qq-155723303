@@ -50,12 +50,11 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
-  local Slider = Tab:Slider({
-        Title = "步行速度",
-        Min = 16,
-        Max = 400,
-        Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
-        Callback = function(Speed)
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed
-        end
-    })
+local Button = Tab:Button({
+    Title = "功能名字",
+    Desc = "简介",
+    Locked = false,
+    Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/hdjsjjdgrhj/script-hub/refs/heads/main/skyhub"))()
+    end
+})
