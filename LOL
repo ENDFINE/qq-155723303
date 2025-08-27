@@ -134,3 +134,33 @@ local Toggle3 = Tab:Toggle({
         end
     end
 })
+
+local Toggle3 = Tab:Toggle({
+    Title = "自动搜集橙色球",
+    Desc = "FIN",
+    Locked = false,
+    Callback = function(state)
+        local autoCollectOrangeOrb = state
+        
+        if autoCollectOrangeOrb then
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
+            end
+
+            if orangeOrbConnection then
+                orangeOrbConnection:Disconnect()
+            end
+
+            orangeOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = {"collectOrb", "Orange Orb", "City"}
+                game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+
+            end)
+        else
+            if orangeOrbConnection then
+                orangeOrbConnection:Disconnect()
+                orangeOrbConnection = nil
+            end
+        end
+    end
