@@ -225,6 +225,36 @@ local Toggle6 = Tab:Toggle({
     end
 })
 
+local Toggle7 = Tab:Toggle({
+    Title = "自动抽闪电水晶",
+    Desc = "FIN",
+    Locked = false,
+    Callback = function(state)
+        local autoCollectLightingOrb = state
+        
+        if autoCollectLighthingleOrb then
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
+            end
+
+            if lightningOrbConnection then
+               lightningleOrbConnection:Disconnect()
+            end
+
+            lightningleOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+               local args = { "openCrystal", "Lightning Crystal"}
+               game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            end)
+        else
+            if lightningleOrbConnection then
+                lightningOrbConnection:Disconnect()
+                lightningOrbConnection = nil
+            end
+        end
+    end
+})
+
 local Button = Tab:Button({
     Title = "传送到主城",
     Desc = "传送到冰霜路线",
