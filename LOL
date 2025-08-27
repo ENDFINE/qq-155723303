@@ -75,26 +75,31 @@ local Toggle = Tab:Toggle({
     end
 })
 
-local Toggle = Tab:Toggle({
+local Toggle2 = Tab:Toggle({
     Title = "自动搜集蓝球",
     Desc = "FIN",
     Locked = false,
     Callback = function(state)
-        autoCollectRedOrb = state
+        local autoCollectBlueOrb = state
         
-        if autoCollectRedOrb then
-            if not Character or not hum then
-                waitForCharacter()
+        if autoCollectBlueOrb then
+            if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
             end
             
-            redOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+            if blueOrbConnection then
+                blueOrbConnection:Disconnect()
+            end
+            
+            blueOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
                 local args = {"collectOrb", "Blue Orb", "City"}
                 game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
             end)
         else
-            if redOrbConnection then
-                redOrbConnection:Disconnect()
-                redOrbConnection = nil
+            if blueOrbConnection then
+                blueOrbConnection:Disconnect()
+                blueOrbConnection = nil
             end
         end
     end
