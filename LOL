@@ -227,7 +227,7 @@ local Toggle6 = Tab:Toggle({
 
 local Toggle7 = Tab:Toggle({
     Title = "自动抽红水晶",
-    Desc = "ks",
+    Desc = "FIN",
     Locked = false,
     Callback = function(state)
         autoOpenRedCrystal = state
@@ -256,7 +256,7 @@ local Toggle7 = Tab:Toggle({
 
 local Toggle8 = Tab:Toggle({
     Title = "自动抽黄水晶",
-    Desc = "ks",
+    Desc = "FIN",
     Locked = false,
     Callback = function(state)
         autoOpenYellowCrystal = state
@@ -285,7 +285,7 @@ local Toggle8 = Tab:Toggle({
 
 local Toggle9 = Tab:Toggle({
     Title = "自动抽蓝水晶",
-    Desc = "ks",
+    Desc = "FIN",
     Locked = false,
     Callback = function(state)
         autoOpenBlueCrystal = state
@@ -313,8 +313,8 @@ local Toggle9 = Tab:Toggle({
 })
 
 local Toggle10 = Tab:Toggle({
-    Title = "自动抽绿水晶",
-    Desc = "ks",
+    Title = "自动抽闪电水晶",
+    Desc = "FIN",
     Locked = false,
     Callback = function(state)
         autoOpenLightningCrystal = state
