@@ -126,9 +126,9 @@ local Toggle3 = Tab:Toggle({
                 game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
             end)
         else
-            if blueOrbConnection then
-                blueOrbConnection:Disconnect()
-                blueOrbConnection = nil
+            if yellowOrbConnection then
+                yellowOrbConnection:Disconnect()
+                yellowOrbConnection = nil
             end
         end
     end
