@@ -197,7 +197,7 @@ local Toggle5 = Tab:Toggle({
 
 local Button = Tab:Button({
     Title = "传送到冰霜",
-    Desc = "传送到主城路线",
+    Desc = "传送到冰霜路线",
     Callback = function()
         pcall(function()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
