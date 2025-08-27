@@ -50,4 +50,8 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
-Tab:AddParagraph("Q群1007580643")
+local Section = Tab:Section({ 
+    Title = "作者:鑫晴",
+    TextXAlignment = "Left",
+    TextSize = 17, -- Default Size
+})
