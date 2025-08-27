@@ -56,6 +56,11 @@ local Button = Tab:Button({
     Locked = false,
     Callback = function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/ChinaQY/Scripts/Main/AntiFling.lua"))()
+WindUI:Notify({
+    Title = "防挂机开启成功",
+    Content = "不知道也没有用",
+    Duration = 3,
+})
   end
 })
 
