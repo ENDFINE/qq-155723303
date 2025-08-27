@@ -20,11 +20,11 @@ local isUIOpen = false
 -- 创建主窗口
 local function createWindow()
     Window = WindUI:CreateWindow({
-        Title = "FIN脚本",
+        Title = "FIN V2",
         Icon = "zap",
         IconThemed = true,
         Author = "作者qq:352602248",
-        Folder = "KScript",
+        Folder = "FINScript",
         Size = UDim2.fromOffset(300, 240),
         Transparent = true,
         Theme = "Dark",
@@ -37,117 +37,29 @@ local function createWindow()
         ScrollBarEnabled = true
     })
 
-    -- 主功能标签页  
-        local MainTab = Window:Tab({
-        Title = "通用",
-        Icon = "zap",
-        Locked = false,
-    })
-
-    local CombatSection = MainTab:Section({Title = "人物修改", Opened = true})
-
-    CharacterSection:Slider({
-        Title = "步行速度",
-        Min = 16,
-        Max = 400,
-        Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
-        Callback = function(Speed)
-            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed
-        end
-    })
-    
-    CharacterSection:Slider({
-        Title = "跳跃高度",
-        Min = 50,
-        Max = 400,
-        Default = game.Players.LocalPlayer.Character.Humanoid.JumpPower,
-        Callback = function(Jump)
-            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Jump
-        end
-    })
-    
-    CharacterSection:Slider({
-        Title = "重力设置",
-        Min = 0,
-        Max = 1000,
-        Default = 196.2,
-        Callback = function(Value)
-            game.Workspace.Gravity = Value
-        end
-    })
-    
-    CharacterSection:Toggle({
-        Title = "无限跳跃",
-        Value = false,
-        Callback = function(Value)
-            Jump = Value
-            game.UserInputService.JumpRequest:Connect(function()
-                if Jump then
-                    game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
-                end
-            end)
-        end
-    })
-    
-    local CombatSection = MainTab:Section({Title = "其他功能", Opened = true})
-
-    ToolsSection:Button({
-        Title = "Dex抓包工具",
-        Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoFenHG/Dex-Explorer/refs/heads/main/Dex-Explorer.lua"))()
-        end
-    })
-    
-    ToolsSection:Button({
-        Title = "Spy调试工具",
-        Callback = function()
-            getgenv().Spy="汉化Spy" 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/refs/heads/main/spy%E6%B1%89%E5%8C%96%20(1).txt"))()
-        end
-    })
-    
-    ToolsSection:Button({
-        Title = "指令",
-        Callback = function()
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-        end
-    })
-    
-    
- local MainTab = Window:Tab({
-        Title = "主要",
+    -- 主功能标签页
+    local MainTab = Window:Tab({
+        Title = "主功能",
         Icon = "zap",
         Locked = false,
     })
     
     MainTab:Button({
-        Title = "极速传奇",
-        Desc = "加载极速脚本",
+        Title = "极速",
+        Desc = "ks",
         Callback = function()
             local success = pcall(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/ENDFINE/qq-155723303/refs/heads/main/LOL"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/finendss/qq-352602248/refs/heads/main/FIN%20zzz"))()
+            end)
             WindUI:Notify({
-                Title = "FIN极速传奇",
+                Title = "极速脚本",
                 Content = success and "加载成功" or "加载失败",
                 Duration = 3
             })
         end
     })
-    
-        MainTab:Button({
-        Title = "森林99夜",
-        Desc = "加载99夜脚本",
-        Callback = function()
-            local success = pcall(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/LinuxDevBr/99-Nights-In-the-Forest/refs/heads/main/Script.txt"))()
-            WindUI:Notify({
-                Title = "森林99夜",
-                Content = success and "加载成功" or "加载失败",
-                Duration = 3
-            })
-        end
-    })
---加下一个必须在设置上面加
+
+    -- 设置标签页
     local SettingsTab = Window:Tab({
         Title = "设置",
         Icon = "settings",
@@ -191,21 +103,21 @@ end
 
 -- 显示欢迎弹窗
 local function showWelcome()
-    local welcomeMsg = gradientText("FIN脚本", Color3.fromHex("#FF0000"), Color3.fromHex("#00FF00"))
+    local welcomeMsg = gradientText("ks脚本", Color3.fromHex("#FF0000"), Color3.fromHex("#00FF00"))
     
     WindUI:Popup({
-        Title = "欢迎使用fin",
-        Content = "尊贵的fin脚本用户，祝你健康平安，fin持续更新",
+        Title = "欢迎使用FIN V2",
+        Content = "尊贵的FIN脚本用户祝您天天开心",
         Buttons = {
             {
-                Title = "取消",
+                Title = "关闭",
                 Callback = function() 
-                    print("为什么要取消卧槽泥马") 
+                    print("用户关闭了脚本") 
                 end,
                 Variant = "Secondary"
             },
             {
-                Title = "进入脚本",
+                Title = "进入",
                 Callback = function()
                     if not Window then
                         createWindow()
