@@ -55,3 +55,9 @@ local Section = Tab:Section({
     TextXAlignment = "Left",
     TextSize = 10, -- Default Size
 })
+
+local Section = Tab:Section({ 
+    Title = "此脚本在尽力更新",
+    TextXAlignment = "Left",
+    TextSize = 10, -- Default Size
+})
