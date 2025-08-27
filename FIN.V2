@@ -38,8 +38,84 @@ local function createWindow()
     })
 
     -- 主功能标签页  
+        local MainTab = Window:Tab({
+        Title = "通用",
+        Icon = "zap",
+        Locked = false,
+    })
+
+    local CombatSection = MainTab:Section({Title = "人物修改", Opened = true})
+
+    CharacterSection:Slider({
+        Title = "步行速度",
+        Min = 16,
+        Max = 400,
+        Default = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed,
+        Callback = function(Speed)
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Speed
+        end
+    })
+    
+    CharacterSection:Slider({
+        Title = "跳跃高度",
+        Min = 50,
+        Max = 400,
+        Default = game.Players.LocalPlayer.Character.Humanoid.JumpPower,
+        Callback = function(Jump)
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = Jump
+        end
+    })
+    
+    CharacterSection:Slider({
+        Title = "重力设置",
+        Min = 0,
+        Max = 1000,
+        Default = 196.2,
+        Callback = function(Value)
+            game.Workspace.Gravity = Value
+        end
+    })
+    
+    CharacterSection:Toggle({
+        Title = "无限跳跃",
+        Value = false,
+        Callback = function(Value)
+            Jump = Value
+            game.UserInputService.JumpRequest:Connect(function()
+                if Jump then
+                    game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                end
+            end)
+        end
+    })
+    
+    local CombatSection = MainTab:Section({Title = "其他功能", Opened = true})
+
+    ToolsSection:Button({
+        Title = "Dex抓包工具",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoFenHG/Dex-Explorer/refs/heads/main/Dex-Explorer.lua"))()
+        end
+    })
+    
+    ToolsSection:Button({
+        Title = "Spy调试工具",
+        Callback = function()
+            getgenv().Spy="汉化Spy" 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/refs/heads/main/spy%E6%B1%89%E5%8C%96%20(1).txt"))()
+        end
+    })
+    
+    ToolsSection:Button({
+        Title = "指令",
+        Callback = function()
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        end
+    })
+    
+    
  local MainTab = Window:Tab({
-        Title = "极速传奇",
+        Title = "主要",
         Icon = "zap",
         Locked = false,
     })
@@ -57,3 +133,106 @@ local function createWindow()
             })
         end
     })
+    
+        MainTab:Button({
+        Title = "名字",
+        Desc = "加载名字脚本",
+        Callback = function()
+            local success = pcall(function()
+                脚本
+            WindUI:Notify({
+                Title = "名字",
+                Content = success and "加载成功" or "加载失败",
+                Duration = 3
+            })
+        end
+    })
+--加下一个必须在设置上面加
+    local SettingsTab = Window:Tab({
+        Title = "设置",
+        Icon = "settings",
+        Locked = false,
+    })
+
+    local themeValues = {}
+    for name, _ in pairs(WindUI:GetThemes()) do
+        table.insert(themeValues, name)
+    end
+
+    SettingsTab:Dropdown({
+        Title = "更改UI主题",
+        Multi = false,
+        AllowNone = false,
+        Value = nil,
+        Values = themeValues,
+        Callback = function(theme)
+            WindUI:SetTheme(theme)
+        end
+    }):Select(WindUI:GetCurrentTheme())
+
+    -- 添加关闭UI按钮
+    SettingsTab:Button({
+        Title = "关闭界面",
+        Desc = "隐藏脚本窗口",
+        Callback = function()
+            if Window then
+                Window:Hide()
+                isUIOpen = false
+            end
+        end
+    })
+
+    -- 窗口关闭回调
+    Window:OnClose(function()
+        isUIOpen = false
+        print("脚本面板已关闭")
+    end)
+end
+
+-- 显示欢迎弹窗
+local function showWelcome()
+    local welcomeMsg = gradientText("ks脚本", Color3.fromHex("#FF0000"), Color3.fromHex("#00FF00"))
+    
+    WindUI:Popup({
+        Title = "欢迎使用fin",
+        Content = "尊贵的fin脚本用户，祝你健康平安，fin持续更新",
+        Buttons = {
+            {
+                Title = "取消",
+                Callback = function() 
+                    print("为什么要取消卧槽泥马") 
+                end,
+                Variant = "Secondary"
+            },
+            {
+                Title = "进入外挂",
+                Callback = function()
+                    if not Window then
+                        createWindow()
+                    end
+                    Window:Show()
+                    isUIOpen = true
+                end,
+                Variant = "Primary"
+            }
+        }
+    })
+end
+
+-- 初始化
+showWelcome()
+
+-- 添加键盘快捷键控制
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if input.KeyCode == Enum.KeyCode.F5 and not gameProcessed then
+        if Window then
+            if isUIOpen then
+                Window:Hide()
+                isUIOpen = false
+            else
+                Window:Show()
+                isUIOpen = true
+            end
+        end
+    end
+end)
