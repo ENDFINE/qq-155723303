@@ -204,7 +204,7 @@ local Toggle5 = Tab:Toggle({
     end
 })
 
-local Toggle6 = Tab:Toggle({
+local Toggle7 = Tab:Toggle({
     Title = "自动抽紫水晶",
     Desc = "FIN",
     Locked = false,
@@ -234,7 +234,7 @@ local Toggle6 = Tab:Toggle({
     end
 })
 
-local Toggle7 = Tab:Toggle({
+local Toggle8 = Tab:Toggle({
     Title = "自动抽红水晶",
     Desc = "FIN",
     Locked = false,
@@ -263,7 +263,7 @@ local Toggle7 = Tab:Toggle({
     end
 })
 
-local Toggle8 = Tab:Toggle({
+local Toggle9 = Tab:Toggle({
     Title = "自动抽黄水晶",
     Desc = "FIN",
     Locked = false,
@@ -292,7 +292,7 @@ local Toggle8 = Tab:Toggle({
     end
 })
 
-local Toggle9 = Tab:Toggle({
+local Toggle10 = Tab:Toggle({
     Title = "自动抽蓝水晶",
     Desc = "FIN",
     Locked = false,
@@ -321,7 +321,7 @@ local Toggle9 = Tab:Toggle({
     end
 })
 
-local Toggle10 = Tab:Toggle({
+local Toggle11 = Tab:Toggle({
     Title = "自动抽闪电水晶",
     Desc = "FIN",
     Locked = false,
