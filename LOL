@@ -50,18 +50,34 @@ local Tab = Window:Tab({
     Locked = false,
 })
 
-local Toggle = Tab:Toggle({
-    Title = "自动获取红球",
-    Desc = "FIN",
-    Locked = false,
-    Callback = function()
-    local code = [[
-            local args = {"collectOrb", "Red Orb", "City"}
-            while true do
-                game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
-                task.wait(0.0001)
+local featureToggle = TabHandles.Elements:Toggle({
+    Title = "自动收集",
+    Desc = "简介",
+    Value = false,
+    Callback = function(state) 
+        toggleState = state
+        WindUI:Notify({
+            Title = "自动收集",
+            Content = state and "功能已启用" or "功能已关闭",
+            Icon = state and "check" or "x",
+            Duration = 2
+        })
+        
+        if state then
+            if not running then
+                running = true
+                local args = {"SellOres"}
+                local delay = 1
+                
+                coroutine.wrap(function()
+                    while toggleState and running do
+                        game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+                    end
+                    running = false
+                end)()
             end
-        ]]
-        loadstring(code)()
+        else
+            running = false
+        end
     end
 })
