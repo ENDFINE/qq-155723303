@@ -204,6 +204,36 @@ local Toggle5 = Tab:Toggle({
     end
 })
 
+local Toggle6 = Tab:Toggle({
+    Title = "自动重生",
+    Desc = "FIN",
+    Locked = false,
+    Callback = function(state)
+        local autoCollectRebirthOrb = state
+        
+        if autoCollectRebirthOrb then
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
+            end
+
+            if rebirthOrbConnection then
+                rebirthOrbConnection:Disconnect()
+            end
+
+            rebirthOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = { "rebirthRequest"}
+                game:GetService("ReplicatedStorage").rEvents.rebirthEvent:FireServer(unpack(args))
+            end)
+        else
+            if rebirthOrbConnection then
+                rebirthOrbConnection:Disconnect()
+                rebirthOrbConnection = nil
+            end
+        end
+    end
+})
+
 local Toggle7 = Tab:Toggle({
     Title = "自动抽紫水晶",
     Desc = "FIN",
