@@ -164,3 +164,33 @@ local Toggle4 = Tab:Toggle({
         end
     end
 })
+
+local Toggle4 = Tab:Toggle({
+    Title = "自动搜集钻石",
+    Desc = "FIN",
+    Locked = false,
+    Callback = function(state)
+        local autoCollectGemOrb = state
+        
+        if autoCollectGemOrb then
+                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                Character = waitForCharacter()
+                hum = Character:WaitForChild("HumanoidRootPart")
+            end
+
+            if gemOrbConnection then
+                gemOrbConnection:Disconnect()
+            end
+
+            gemOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = { "collectOrb", "Gem", "City"}
+                game:GetService("ReplicatedStorage").rEvents.orbEvent:FireServer(unpack(args))
+            end)
+        else
+            if gemOrbConnection then
+                orangeOrbConnection:Disconnect()
+                orangeOrbConnection = nil
+            end
+        end
+    end
+})
