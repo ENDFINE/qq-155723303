@@ -135,7 +135,7 @@ local Toggle3 = Tab:Toggle({
     end
 })
 
-local Toggle3 = Tab:Toggle({
+local Toggle4 = Tab:Toggle({
     Title = "自动搜集橙色球",
     Desc = "FIN",
     Locked = false,
