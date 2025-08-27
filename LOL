@@ -226,30 +226,116 @@ local Toggle6 = Tab:Toggle({
 })
 
 local Toggle7 = Tab:Toggle({
-    Title = "自动抽闪电水晶",
-    Desc = "FIN",
+    Title = "自动抽红水晶",
+    Desc = "ks",
     Locked = false,
     Callback = function(state)
-        local autoCollectLightningOrb = state
+        autoOpenRedCrystal = state
         
-        if autoCollectLightningleOrb then
-                 if not LocalPlayer.Character or not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-                Character = waitForCharacter()
-                hum = Character:WaitForChild("HumanoidRootPart")
+        if autoOpenRedCrystal then
+            if not Character or not hum then
+                waitForCharacter()
             end
-
-            if lightningOrbConnection then
-               lightningleOrbConnection:Disconnect()
+            
+            if redCrystalConnection then
+                redCrystalConnection:Disconnect()
             end
-
-            lightningleOrbConnection = game:GetService("RunService").Heartbeat:Connect(function()
-               local args = { "openCrystal", "Lightning Crystal"}
-               game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            
+            redCrystalConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = {"openCrystal","Red Crystal"}
+                game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
             end)
         else
-            if lightningleOrbConnection then
-                lightningOrbConnection:Disconnect()
-                lightningOrbConnection = nil
+            if redCrystalConnection then
+                redCrystalConnection:Disconnect()
+                redCrystalConnection = nil
+            end
+        end
+    end
+})
+
+local Toggle8 = Tab:Toggle({
+    Title = "自动抽黄水晶",
+    Desc = "ks",
+    Locked = false,
+    Callback = function(state)
+        autoOpenYellowCrystal = state
+        
+        if autoOpenYellowCrystal then
+            if not Character or not hum then
+                waitForCharacter()
+            end
+            
+            if yellowCrystalConnection then
+                yellowCrystalConnection:Disconnect()
+            end
+            
+            yellowCrystalConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = {"openCrystal","Yellow Crystal"}
+                game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            end)
+        else
+            if yellowCrystalConnection then
+                yellowCrystalConnection:Disconnect()
+                yellowCrystalConnection = nil
+            end
+        end
+    end
+})
+
+local Toggle9 = Tab:Toggle({
+    Title = "自动抽蓝水晶",
+    Desc = "ks",
+    Locked = false,
+    Callback = function(state)
+        autoOpenBlueCrystal = state
+        
+        if autoOpenBlueCrystal then
+            if not Character or not hum then
+                waitForCharacter()
+            end
+            
+            if blueCrystalConnection then
+                blueCrystalConnection:Disconnect()
+            end
+            
+            blueCrystalConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = {"openCrystal","Blue Crystal"}
+                game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            end)
+        else
+            if blueCrystalConnection then
+                blueCrystalConnection:Disconnect()
+                blueCrystalConnection = nil
+            end
+        end
+    end
+})
+
+local Toggle10 = Tab:Toggle({
+    Title = "自动抽绿水晶",
+    Desc = "ks",
+    Locked = false,
+    Callback = function(state)
+        autoOpenLightningCrystal = state
+        
+        if autoOpenLightningCrystal then
+            if not Character or not hum then
+                waitForCharacter()
+            end
+            
+            if lightningCrystalConnection then
+                lightningCrystalConnection:Disconnect()
+            end
+            
+            lightningCrystalConnection = game:GetService("RunService").Heartbeat:Connect(function()
+                local args = {"openCrystal","Lightning Crystal"}
+                game:GetService("ReplicatedStorage").rEvents.openCrystalRemote:InvokeServer(unpack(args))
+            end)
+        else
+            if lightningCrystalConnection then
+                lightningCrystalConnection:Disconnect()
+                lightningCrystalConnection = nil
             end
         end
     end
