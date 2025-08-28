@@ -59,6 +59,21 @@ local function createWindow()
         end
     })
 
+MainTab:Button({
+        Title = "被遗弃",
+        Desc = "FIN",
+        Callback = function()
+            local success = pcall(function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/FINED921/FIN-V2/refs/heads/main/Forsaken"))()
+            end)
+            WindUI:Notify({
+                Title = "被遗弃",
+                Content = success and "加载成功" or "加载失败",
+                Duration = 3
+            })
+        end
+    })
+
     -- 设置标签页
     local SettingsTab = Window:Tab({
         Title = "设置",
