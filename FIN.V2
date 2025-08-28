@@ -49,7 +49,7 @@ local function createWindow()
         Desc = "FIN",
         Callback = function()
             local success = pcall(function()
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/finendss/qq-352602248/refs/heads/main/FIN%20zzz"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/ENDFINE/qq-155723303/refs/heads/main/LOL"))()
             end)
             WindUI:Notify({
                 Title = "极速传奇",
