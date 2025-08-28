@@ -1,7 +1,7 @@
 local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 WindUI:Notify({
-    Title = "FIN V2 Hub启动中",
+    Title = "FIN | 极速启动中",
     Content = "尊贵的FIN用户 欢迎使用FIN脚本",
     Duration = 5,
 })
@@ -13,7 +13,7 @@ local hum = Character.HumanoidRootPart
 local PlayerGui = LocalPlayer.PlayerGui
 
 local Window = WindUI:CreateWindow({
-    Title = "FIN V2",
+    Title = "FIN | 极速",
     Icon = "rbxassetid://129260712070622",
     IconThemed = true,
     Author = "作者:鑫晴",
@@ -33,7 +33,7 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:EditOpenButton({
-    Title = "FIN V2 Hub",
+    Title = "FIN | 极速",
     Icon = "star",
     CornerRadius = UDim.new(0,16),
     StrokeThickness = 2,
@@ -45,7 +45,7 @@ Window:EditOpenButton({
 })
 
 local Tab = Window:Tab({
-    Title = "极速传奇",
+    Title = "自动搜集",
     Icon = "zap",
     Locked = false,
 })
@@ -239,6 +239,12 @@ local Toggle6 = Tab:Toggle({
     end
 })
 
+local Tab = Window:Tab({
+    Title = "自动抽奖",
+    Icon = "zap",
+    Locked = false,
+})
+
 local Toggle7 = Tab:Toggle({
     Title = "自动抽紫水晶",
     Desc = "FIN",
@@ -394,6 +400,12 @@ local Button = Tab:Button({
                 CFrame.new(2002.0133056640625, 1.2624330520629883, 985.2265625)
         end)
     end
+})
+
+local Tab = Window:Tab({
+    Title = "传送",
+    Icon = "zap",
+    Locked = false,
 })
 
 local Button = Tab:Button({
