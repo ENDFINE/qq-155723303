@@ -23,7 +23,7 @@ local function createWindow()
         Title = "FIN V2",
         Icon = "zap",
         IconThemed = true,
-        Author = "作者qq:352602248",
+        Author = "作者 鑫晴",
         Folder = "FINScript",
         Size = UDim2.fromOffset(300, 240),
         Transparent = true,
@@ -103,7 +103,7 @@ end
 
 -- 显示欢迎弹窗
 local function showWelcome()
-    local welcomeMsg = gradientText("ks脚本", Color3.fromHex("#FF0000"), Color3.fromHex("#00FF00"))
+    local welcomeMsg = gradientText("FIN脚本", Color3.fromHex("#FF0000"), Color3.fromHex("#00FF00"))
     
     WindUI:Popup({
         Title = "欢迎使用FIN V2",
